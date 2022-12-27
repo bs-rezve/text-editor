@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Text Editor</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="section">
+      <div class="top_navbar">
+        <div class="hamburger" id="hamburger">
+          <a href="#">↔️ 
+            <i class="fas fa-bars"></i>
+          </a>
+        </div>
+      </div>
+      <div class="container">
+        <textarea autocomplete="off" id="editor"></textarea>
+    </div>
+    <div class="sidebar">
+      <div class="profile">
+        <h3>Text Editor</h3>
+        <p><a href="https://github.com/bs-rezve/text-editor" style="color: white;">Source Code</a></p>
+        <p><a href="help.html" style="color: white;">Help</a></p>
+      </div>
+      <ul id="saved-items">
+      </ul>
+    </div>
+
+  </div>
+  <a href="#" class="float" id="save-btn">
+    <span class="save-btn">💾 </span>
+  </a>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
