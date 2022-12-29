@@ -138,7 +138,7 @@ textarea {
 	height:60px;
 	bottom: 20px;;
 	left:10px;
-	background-color:#0C9;
+	background-color: #0769b9;
 	color:#FFF;
 	border-radius:50px;
 	text-align:center;
@@ -151,11 +151,16 @@ textarea {
 
 .save-btn{
     font-size: 2em;
-    padding-top: 15px;
+    padding-top: 12px;
 }
 
 .word-count-container {
   text-align: right;
   margin-right: 10px;
   color: rgb(105, 104, 104);
+}
+
+.right-menu {
+  position: absolute;
+  right: 10px;
 }
