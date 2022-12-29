@@ -14,31 +14,35 @@
     <div class="section">
       <div class="top_navbar">
         <div class="hamburger" id="hamburger">
-          <a href="#">↔️ 
+          <a href="#">↔️
             <i class="fas fa-bars"></i>
           </a>
         </div>
       </div>
       <div class="container" style="position: relative;">
-        <textarea autocomplete="off" id="editor"></textarea>
+        <textarea autocomplete="off" id="editor" placeholder="Start typing or paste to begin"></textarea>
         <a href="#" class="float" id="save-btn">
           <div class="save-btn">💾 </div>
         </a>
-    </div>
-    <div class="sidebar">
-      <div class="profile">
-        <h3>Text Editor</h3>
-        <p><a href="https://github.com/bs-rezve/text-editor" style="color: white;">Source Code</a></p>
-        <p><a href="help.html" style="color: white;">Help</a></p>
+        <div class="word-count-container">
+          Word: <span id="word-count">0</span>
+          Character: <span id="char-count">0</span>
+        </div>
       </div>
-      <ul id="saved-items">
-      </ul>
+      <div class="sidebar">
+        <div class="profile">
+          <h3>Text Editor</h3>
+          <p><a href="https://github.com/bs-rezve/text-editor" style="color: white;">Source Code</a></p>
+          <p><a href="help.html" style="color: white;">Help</a></p>
+        </div>
+        <ul id="saved-items">
+        </ul>
+      </div>
+
     </div>
 
-  </div>
 
-
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>

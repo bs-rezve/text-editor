@@ -3,6 +3,14 @@ var TEXT_ID_SIZE = 15;
 window.onload = function() {
     var saveBtn = document.getElementById("save-btn");
     var editor = document.getElementById("editor");
+    var wordCount = document.getElementById("word-count");
+    var charCount = document.getElementById("char-count");
+
+    // count word & character
+    editor.addEventListener('keyup', function(ev) {
+        wordCount.textContent = getWordCount(editor.value);
+        charCount.textContent = editor.value.length;
+    })
 
     // save & remember sidebar's initial state
     let isActiveSidebar = get('IS_ACTIVE_SIDEBAR');
@@ -33,7 +41,7 @@ window.onload = function() {
         let textIds = get('ITEMS');
         if (textIds) {
             for (const id of textIds) {
-                addToSidebad(id);
+                addToSidebar(id);
             }
         }
     
@@ -45,7 +53,7 @@ window.onload = function() {
                 textId = textId.replace(/ /g,"_");
                 addToSavedItemList(textId);
                 saveItem(textId, text);
-                addToSidebad(textId);
+                addToSidebar(textId);
                 editor.value = '';
             }
         }
@@ -53,11 +61,15 @@ window.onload = function() {
     })();
 }
 
+function getWordCount(str) {
+    return str ? str.trim().split(/\s+/).length : 0;
+}
+
 /**
  * Create a element in sidebar add to the DOM
  * @param {*} text 
  */
-function addToSidebad(text) {
+function addToSidebar(text) {
     var ul = document.getElementById("saved-items");
     var li = document.createElement("li");
     var a = document.createElement("a");
