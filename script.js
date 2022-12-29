@@ -3,16 +3,30 @@ var TEXT_ID_SIZE = 15;
 window.onload = function() {
     var saveBtn = document.getElementById("save-btn");
     var editor = document.getElementById("editor");
+
+    // save & remember sidebar's initial state
+    let isActiveSidebar = get('IS_ACTIVE_SIDEBAR');
+    if (isActiveSidebar == null) {
+        isActiveSidebar = set('IS_ACTIVE_SIDEBAR', true);
+    }
+    if (!isActiveSidebar) {
+        setTimeout(()=> {
+            document.querySelector("body").classList.toggle("active");
+        }, 1000)
+    }
+    
+    // sidebar event handler
     try {
         var hamburger = document.getElementById("hamburger");
         hamburger.addEventListener("click", function(){
             document.querySelector("body").classList.toggle("active");
+            isActiveSidebar = set('IS_ACTIVE_SIDEBAR', !isActiveSidebar);
         })
     } catch (error) {
         console.log(error)
     }
 
-
+    // editor content saving
     (() => {
         // check if we have any saved state or initiate empty state
         let textIds = get('ITEMS');
@@ -38,6 +52,10 @@ window.onload = function() {
     })();
 }
 
+/**
+ * Create a element in sidebar add to the DOM
+ * @param {*} text 
+ */
 function addToSidebad(text) {
     var ul = document.getElementById("saved-items");
     var li = document.createElement("li");
@@ -50,6 +68,10 @@ function addToSidebad(text) {
     ul.prepend(li);
 }
 
+/**
+ * Delete an element from DOM
+ * @param {*} el 
+ */
 function deleteFromList(el) {
     let textId = el.srcElement.id;
     removeItem(textId);
@@ -57,18 +79,29 @@ function deleteFromList(el) {
     el.srcElement.parentNode.remove();
 }
 
+/**
+ * Update the content of editor
+ * @param {*} el 
+ */
 function updateEditorContent(el) {
     let textId = el.srcElement.id;
     editor.value = getItem(textId);
 }
 
+/**
+ * Get all saved items
+ * @returns 
+ */
 function getSavedItemList() {
     const items = get('ITEMS');
     return items;
 }
 
+/**
+ * Save a new content
+ * @param {*} textId 
+ */
 function addToSavedItemList(textId) {
-
     let items = get('ITEMS');
     if (items) {
         items.push(textId);
@@ -78,14 +111,28 @@ function addToSavedItemList(textId) {
     set('ITEMS', items);
 }
 
+/**
+ * Get a single content details
+ * @param {*} id 
+ * @returns 
+ */
 function getItem(id) {
     return get('ITEMS/'+ id);
 }
 
+/**
+ * Save ids of list
+ * @param {*} id 
+ * @param {*} data 
+ */
 function saveItem(id, data) {
     set('ITEMS/'+ id, data);
 }
 
+/**
+ * Remove from saved ids of items
+ * @param {*} id 
+ */
 function removeItem(id) {
     remove(id);
     let items = get('ITEMS');
@@ -95,6 +142,12 @@ function removeItem(id) {
     }
 }
 
+/**
+ * Get JSON formatted data from local storage
+ * 
+ * @param {*} key 
+ * @returns 
+ */
 function get(key) {
     const data = localStorage.getItem(key);
     if (data) {
@@ -103,10 +156,19 @@ function get(key) {
     return null;
 }
 
+/**
+ * Save a json stringified data of a object
+ * @param {*} key 
+ * @param {*} value 
+ */
 function set(key, value) {
     localStorage.setItem(key, JSON.stringify(value));
 }
 
+/**
+ * Delete from local storage
+ * @param {*} key 
+ */
 function remove(key) {
     localStorage.removeItem(key);
 }
