@@ -7,7 +7,8 @@ window.onload = function() {
     // save & remember sidebar's initial state
     let isActiveSidebar = get('IS_ACTIVE_SIDEBAR');
     if (isActiveSidebar == null) {
-        isActiveSidebar = set('IS_ACTIVE_SIDEBAR', true);
+        set('IS_ACTIVE_SIDEBAR', true);
+        isActiveSidebar = true;
     }
     if (!isActiveSidebar) {
         setTimeout(()=> {
