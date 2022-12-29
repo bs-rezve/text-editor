@@ -18,6 +18,7 @@ textarea {
     font-size: 16px;
     border-color: #f5f6fa;
     color: rgb(62, 55, 55);
+    padding: 10px;
 }
 
 .wrapper .sidebar{
