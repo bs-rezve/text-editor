@@ -74,6 +74,7 @@ function addToSidebar(text) {
     var li = document.createElement("li");
     var a = document.createElement("a");
     a.setAttribute('id', text);
+    a.setAttribute('title', 'Single click to view & Double click to delete');
     a.appendChild(document.createTextNode(text.replace(/_/g," ")));
     li.addEventListener('click', updateEditorContent);
     li.addEventListener('dblclick', deleteFromList);

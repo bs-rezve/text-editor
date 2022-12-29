@@ -18,11 +18,25 @@
             <i class="fas fa-bars"></i>
           </a>
         </div>
+
+        <!-- right menu -->
+        <div class="right-menu">
+          <a href="https://github.com/bs-rezve/text-editor" style="color: white;">
+            <svg aria-hidden="true" focusable="false" role="img" class="octicon octicon-mark-github" viewBox="0 0 16 16" width="32" height="32" fill="currentColor" style="display:inline-block;user-select:none;vertical-align:text-bottom;overflow:visible"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+          </a>
+        </div>
       </div>
       <div class="container" style="position: relative;">
         <textarea autocomplete="off" id="editor" placeholder="Start typing or paste to begin"></textarea>
-        <a href="#" class="float" id="save-btn">
-          <div class="save-btn">💾 </div>
+        <a href="#" class="float" id="save-btn" title="Click to save notes in your browser">
+          <div class="save-btn">
+            <svg width="35px" height="35px" viewBox="-1 0 24 24" id="meteor-icon-kit__solid-save" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#134064">
+              <g id="SVGRepo_bgCarrier" stroke-width="0"/>
+              <g id="SVGRepo_iconCarrier">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M5 0V7C5 7.55228 5.44772 8 6 8H16C16.5523 8 17 7.55228 17 7V0H18L22 5V21C22 22.6569 20.6569 24 19 24H3C1.34315 24 0 22.6569 0 21V3C0 1.34315 1.34315 0 3 0H5zM7 0H15V6H7V0zM6.2 15H15.8C16.4627 15 17 14.5523 17 14C17 13.4477 16.4627 13 15.8 13H6.2C5.53726 13 5 13.4477 5 14C5 14.5523 5.53726 15 6.2 15zM6.2 19H15.8C16.4627 19 17 18.5523 17 18C17 17.4477 16.4627 17 15.8 17H6.2C5.53726 17 5 17.4477 5 18C5 18.5523 5.53726 19 6.2 19z" fill="#FFF"/>
+              </g>
+              </svg>
+          </div>
         </a>
         <div class="word-count-container">
           Word: <span id="word-count">0</span>
@@ -32,7 +46,6 @@
       <div class="sidebar">
         <div class="profile">
           <h3>Text Editor</h3>
-          <p><a href="https://github.com/bs-rezve/text-editor" style="color: white;">Source Code</a></p>
           <p><a href="help.html" style="color: white;">Help</a></p>
         </div>
         <ul id="saved-items">
